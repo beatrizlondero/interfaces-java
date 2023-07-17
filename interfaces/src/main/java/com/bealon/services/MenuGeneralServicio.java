@@ -26,18 +26,27 @@ public class MenuGeneralServicio implements MenuServicio {
     public int obtenerOpcion(){
         
         System.out.print("Ingrese el número del menú: ");
-        Scanner scanner = new Scanner(System.in);
-        try  {
-            int opcion = scanner.nextInt();
-            System.out.println(opcion);
-            return opcion;
-        }  catch (Exception e) {
-            scanner.next();
-            System.out.println("ingresaste un caracter invalido");
-        }finally{
-            scanner.close();
-        }
-        return 0;
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextLine()) {
+                return scanner.nextInt();
+            } else {
+                return 0; // Return an empty string if no input is available
+            }
+            
+        
+
+        // Scanner scanner = new Scanner(System.in);
+        // try  {
+        //     int opcion = scanner.nextInt();
+        //     System.out.println(opcion);
+        //     return opcion;
+        // }  catch (Exception e) {
+        //     scanner.next();
+        //     System.out.println("ingresaste un caracter invalido");
+        // }finally{
+        //     scanner.close();
+        // }
+        // return 0;
     }
 
     public void seleccionarOpcion(Integer opcion) throws Exception {

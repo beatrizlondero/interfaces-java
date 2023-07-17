@@ -5,7 +5,6 @@ import java.util.Scanner;
 import com.bealon.interfaces.MenuServicio;
 
 public class MenuOtrasOpciones implements MenuServicio {
-    private static String entrada = "a\n";
     @Override
     public void imprimirTitulo() {
         System.out.println("Menu personalizado");
@@ -22,18 +21,26 @@ public class MenuOtrasOpciones implements MenuServicio {
     @Override
     public int obtenerOpcion() {
         System.out.println( "Seleccione la opcion: ");
-        Scanner scanner = new Scanner(entrada);
-        try  {
-            return scanner.nextInt();
-        } catch (Exception e ){
-            scanner.nextLine();
-           // throw new Exception( "algo salio mal");
-        } finally { 
-            System.out.println("en el finally");
-            scanner.close();
-            entrada = "2\n";
-        }
-        return 0;
+        Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextLine()) {
+                return scanner.nextInt();
+            } else {
+                return 0; // Return an empty string if no input is available
+            }
+
+        
+        // Scanner scanner = new Scanner(entrada);
+        // try  {
+        //     return scanner.nextInt();
+        // } catch (Exception e ){
+        //     scanner.nextLine();
+        //    // throw new Exception( "algo salio mal");
+        // } finally { 
+        //     System.out.println("en el finally");
+        //     scanner.close();
+        //     entrada = "2\n";
+        // }
+        // return 0;
     }
 
 

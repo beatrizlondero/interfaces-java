@@ -19,14 +19,21 @@ public class MenuOpcionesNumericasServicio implements MenuServicio{
 
     public int obtenerOpcion() throws Exception {
         System.out.print("Ingrese el número de opción: ");
-        try (Scanner scanner = new Scanner(System.in)) {
-            // int opcion = scanner.nextInt();
-            // System.out.println(opcion);
-            return scanner.nextInt();
-        }  catch (Exception e) {
-           throw new Exception("algo fallo",e);
+
+        Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextLine()) {
+                return scanner.nextInt();
+            } else {
+                return 0; // Return an empty string if no input is available
+            }
+        // try (Scanner scanner = new Scanner(System.in)) {
+        //     // int opcion = scanner.nextInt();
+        //     // System.out.println(opcion);
+        //     return scanner.nextInt();
+        // }  catch (Exception e) {
+        //    throw new Exception("algo fallo",e);
            
-        }
+        // }
         
     }
 

@@ -19,14 +19,24 @@ public class MenuOpcionesLetrasServicio implements MenuServicio {
 
     public int obtenerOpcion() {
         System.out.print("Ingrese la letra de opción: ");
-           try (Scanner scanner = new Scanner(System.in)) {
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextLine()) {
             String opcionString = scanner.nextLine().toUpperCase();
             char opcionChar = opcionString.charAt(0);
             return (int) opcionChar;
-        }  catch (Exception e) {
-            System.out.println("opcion no valida" + e.getMessage());
+        } else {
+            return 0; // Return an empty string if no input is available
         }
-        return 0;
+
+
+        //    try (Scanner scanner = new Scanner(System.in)) {
+        //     String opcionString = scanner.nextLine().toUpperCase();
+        //     char opcionChar = opcionString.charAt(0);
+        //     return (int) opcionChar;
+        // }  catch (Exception e) {
+        //     System.out.println("opcion no valida" + e.getMessage());
+        // }
+        // return 0;
         
     }
 
